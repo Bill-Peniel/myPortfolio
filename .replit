@@ -1,0 +1,20 @@
+modules = ["vue-node-20", "web", "nodejs-20"]
+run = "cd bill-portfolio; npm run dev"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "cd bill-portfolio; npm run dev"]
+
+[workflows]
+runButton = "Run Vue App"
+
+[[workflows.workflow]]
+name = "Run Vue App"
+author = 44058347
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd bill-portfolio && npm run dev"
