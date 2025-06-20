@@ -1,53 +1,53 @@
-
 <template>
-  <section id="projects" class="section-padding bg-gray-50 dark:bg-gray-800">
+  <section id="projects" class="section-padding bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Mes Projets
         </h2>
         <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Découvrez quelques-uns de mes projets récents et réalisations
+          Découvrez quelques-unes de mes réalisations récentes
         </p>
       </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="project in projects" :key="project.id" 
-             class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-slide-up">
-          <div class="aspect-video bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <component :is="project.icon" :size="48" class="text-white" />
-            </div>
-          </div>
-          
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              {{ project.title }}
-            </h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-              {{ project.description }}
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span v-for="tech in project.technologies" :key="tech"
-                    class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium">
-                {{ tech }}
-              </span>
+      <transition name="fade-slide" appear>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div v-for="project in projects" :key="project.id" 
+               class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-slide-up">
+            <div class="aspect-video bg-gradient-to-br from-primary-400 to-primary-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <component :is="project.icon" :size="48" class="text-white" />
+              </div>
             </div>
             
-            <div class="flex gap-3">
-              <a href="#" class="flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors text-sm font-medium">
-                <ExternalLink :size="16" />
-                Demo
-              </a>
-              <a href="#" class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm font-medium">
-                <Github :size="16" />
-                Code
-              </a>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                {{ project.title }}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                {{ project.description }}
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span v-for="tech in project.technologies" :key="tech"
+                      class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium">
+                  {{ tech }}
+                </span>
+              </div>
+              
+              <div class="flex gap-3">
+                <a href="#" class="flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors text-sm font-medium">
+                  <ExternalLink :size="16" />
+                  Demo
+                </a>
+                <a href="#" class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm font-medium">
+                  <Github :size="16" />
+                  Code
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
   </section>
 </template>
@@ -101,3 +101,20 @@ const projects = ref([
   }
 ])
 </script>
+
+<style>
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+}
+.fade-slide-enter-to,
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+</style>

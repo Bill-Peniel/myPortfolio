@@ -1,87 +1,15 @@
 <template>
-  <div class="item">
-    <i>
+  <div class="mt-8 flex relative bg-white dark:bg-gray-900 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-700 transition-colors">
+    <i class="flex items-center justify-center w-12 h-12 md:w-[50px] md:h-[50px] absolute md:static left-0 top-1/2 md:top-0 md:left-0 -translate-y-1/2 md:translate-y-0 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 rounded-lg text-primary-600 dark:text-primary-400 shadow">
       <slot name="icon"></slot>
     </i>
-    <div class="details">
-      <h3>
+    <div class="flex-1 ml-4">
+      <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
         <slot name="heading"></slot>
       </h3>
-      <slot></slot>
+      <div class="text-gray-700 dark:text-gray-300">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-.item {
-  margin-top: 2rem;
-  display: flex;
-  position: relative;
-}
-
-.details {
-  flex: 1;
-  margin-left: 1rem;
-}
-
-i {
-  display: flex;
-  place-items: center;
-  place-content: center;
-  width: 32px;
-  height: 32px;
-
-  color: var(--color-text);
-}
-
-h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
-}
-
-@media (min-width: 1024px) {
-  .item {
-    margin-top: 0;
-    padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
-  }
-
-  i {
-    top: calc(50% - 25px);
-    left: -26px;
-    position: absolute;
-    border: 1px solid var(--color-border);
-    background: var(--color-background);
-    border-radius: 8px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .item:before {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    bottom: calc(50% + 25px);
-    height: calc(50% - 25px);
-  }
-
-  .item:after {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    top: calc(50% + 25px);
-    height: calc(50% - 25px);
-  }
-
-  .item:first-of-type:before {
-    display: none;
-  }
-
-  .item:last-of-type:after {
-    display: none;
-  }
-}
-</style>

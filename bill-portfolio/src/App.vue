@@ -1,4 +1,3 @@
-
 <template>
   <div id="app" :class="{ 'dark': isDark }" class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Navigation -->
@@ -43,8 +42,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-16 min-h-screen flex items-center section-padding">
-      <div class="max-w-7xl mx-auto w-full">
+    <section id="home" class="pt-16 min-h-screen flex items-center section-padding bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div class="max-w-3xl mx-auto w-full bg-white/80 dark:bg-gray-800/80 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 transition-colors">
         <div class="text-center">
           <div class="animate-fade-in">
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
@@ -83,7 +82,7 @@
     <footer class="bg-gray-50 dark:bg-gray-800 section-padding">
       <div class="max-w-7xl mx-auto text-center">
         <p class="text-gray-600 dark:text-gray-400">
-          © 2024 {{ name }}. Tous droits réservés.
+          © 2023 {{ name }}. Tous droits réservés.
         </p>
       </div>
     </footer>
@@ -102,7 +101,7 @@ const isDark = ref(false)
 const isMobileMenuOpen = ref(false)
 
 // Données du portfolio - à personnaliser
-const name = ref('Votre Nom')
+const name = ref('Bill Akpacheme')
 const title = ref('Développeur Full-Stack passionné par la création d\'expériences numériques exceptionnelles')
 
 const toggleDarkMode = () => {
