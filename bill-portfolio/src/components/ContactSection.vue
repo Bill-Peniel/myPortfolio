@@ -1,4 +1,3 @@
-
 <template>
   <section id="contact" class="section-padding">
     <div class="max-w-7xl mx-auto">
@@ -10,7 +9,7 @@
           Prêt à collaborer ? N'hésitez pas à me contacter pour discuter de votre projet
         </p>
       </div>
-      
+
       <div class="grid md:grid-cols-2 gap-12">
         <!-- Informations de contact -->
         <div class="animate-slide-up">
@@ -21,7 +20,7 @@
             Je suis toujours ouvert aux nouvelles opportunités et collaborations intéressantes. 
             Que ce soit pour un projet, une question ou simplement pour dire bonjour, n'hésitez pas !
           </p>
-          
+
           <div class="space-y-4">
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
@@ -34,7 +33,7 @@
                 </a>
               </div>
             </div>
-            
+
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
                 <Phone :size="20" class="text-primary-600 dark:text-primary-400" />
@@ -46,7 +45,7 @@
                 </a>
               </div>
             </div>
-            
+
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
                 <MapPin :size="20" class="text-primary-600 dark:text-primary-400" />
@@ -57,7 +56,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Réseaux sociaux -->
           <div class="mt-8">
             <h4 class="font-medium text-gray-900 dark:text-white mb-4">Suivez-moi</h4>
@@ -74,7 +73,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Formulaire de contact -->
         <div class="animate-slide-up">
           <form @submit.prevent="submitForm" class="space-y-6">
@@ -91,7 +90,7 @@
                 placeholder="Votre nom"
               >
             </div>
-            
+
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email
@@ -105,7 +104,7 @@
                 placeholder="votre@email.com"
               >
             </div>
-            
+
             <div>
               <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Sujet
@@ -119,7 +118,7 @@
                 placeholder="Sujet de votre message"
               >
             </div>
-            
+
             <div>
               <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Message
@@ -133,7 +132,7 @@
                 placeholder="Votre message..."
               ></textarea>
             </div>
-            
+
             <button
               type="submit"
               :disabled="isSubmitting"
@@ -165,13 +164,13 @@ const isSubmitting = ref(false)
 
 const submitForm = async () => {
   isSubmitting.value = true
-  
+
   // Simuler l'envoi du formulaire
   await new Promise(resolve => setTimeout(resolve, 1000))
-  
+
   // Ici vous pourriez intégrer un service d'envoi d'email
   console.log('Formulaire soumis:', form.value)
-  
+
   // Réinitialiser le formulaire
   form.value = {
     name: '',
@@ -179,43 +178,7 @@ const submitForm = async () => {
     subject: '',
     message: ''
   }
-  
-  isSubmitting.value = false
-  alert('Message envoyé avec succès !')
-}
-</script>
-</template>
 
-<script setup>
-import { ref } from 'vue'
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from 'lucide-vue-next'
-
-const form = ref({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
-
-const isSubmitting = ref(false)
-
-const submitForm = async () => {
-  isSubmitting.value = true
-  
-  // Simuler l'envoi du formulaire
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  
-  // Ici vous pourriez intégrer un service d'envoi d'email
-  console.log('Formulaire soumis:', form.value)
-  
-  // Réinitialiser le formulaire
-  form.value = {
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  }
-  
   isSubmitting.value = false
   alert('Message envoyé avec succès !')
 }
