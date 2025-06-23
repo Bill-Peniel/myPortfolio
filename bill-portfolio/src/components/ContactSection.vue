@@ -69,7 +69,7 @@
                   <Linkedin :size="20" />
                 </a>
                 <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                  <Twitter :size="20" />
+                  <Twitter :size="20" /> 
                 </a>
               </div>
             </div>
